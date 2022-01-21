@@ -47,7 +47,7 @@
 
 * 제공되는 AI기법을 Fine-Tuning하거나, 새로운 AI 기법을 통해 조난자(인물) 검출 AI모델 제안할 수 있습니다.
 
-<center><img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/person.png" height="300"/></center>
+<p align="center"> <img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/person.png" height="300"/> </p>
 
 ----
 
@@ -76,7 +76,7 @@
 
   * 다운로드 및 사용을 위해 AIHub 가입과 데이터 사용 신청이 필요 (저작권 및 이용정책)
 
-<p align="center"> <img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image1.png" alt="image1.png" style="zoom:150%;" /> </>
+<p align="center"> <img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image1.png" alt="image1.png" style="zoom:150%;" /> </p>
 
 
 
@@ -84,7 +84,7 @@
   * 10,216장, 총 30GB 
   * YOLO Dataset 기준 라벨링 정보
 
-<img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image2.png" alt="image2.png" style="zoom:150%;" />
+<p align="center"> <img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image2.png" alt="image2.png" style="zoom:150%;" /> </p>
 
 
 
@@ -96,7 +96,7 @@
 
   * 안개효과 등 여러 필터효과를 통한 이미지 증강 사례
 
-<img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image3.png" alt="image3.png" style="zoom:150%;" />
+<p align="center"> <img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image3.png" alt="image3.png" style="zoom:150%;" /> </p>
 
 ---
 
