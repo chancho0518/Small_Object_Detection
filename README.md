@@ -132,7 +132,7 @@
 ### Yolo모델 코드분석
 
 * __바운딩박스 예측식__
-<img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/func.png" alt="func.png" />
+<img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/func.png" alt="func.png" style="zoom:85%;"/>
 
 
 * __과정 1__: 욜로 배경이되는 darknet 모델 불러오기
