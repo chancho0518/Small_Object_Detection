@@ -47,7 +47,7 @@
 
 * 제공되는 AI기법을 Fine-Tuning하거나, 새로운 AI 기법을 통해 조난자(인물) 검출 AI모델 제안할 수 있습니다.
 
-<img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/person.png" alt="person.png" style="zoom:150%;" />
+<center><img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/person.png" height="300"/></center>
 
 ----
 
