@@ -76,7 +76,7 @@
 
   * 다운로드 및 사용을 위해 AIHub 가입과 데이터 사용 신청이 필요 (저작권 및 이용정책)
 
-<img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image1.png" alt="image1.png" style="zoom:150%;" />
+<p align="center"> <img src="https://github.com/chancho0518/AIFFELTHON/blob/main/image/image1.png" alt="image1.png" style="zoom:150%;" /> </>
 
 
 
