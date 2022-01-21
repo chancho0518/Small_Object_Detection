@@ -187,48 +187,48 @@ def create_modules(blocks):
     module_list = nn.ModuleList()
     prev_filters = 3
     output_filters = []
-		for index, x in enumerate(blocks[1:]):
-		    module = nn.Sequential()
-		if (x['type'] == 'convolutional'):
+	for index, x in enumerate(blocks[1:]):
+	    module = nn.Sequential()
+	if (x['type'] == 'convolutional'):
             # layer에 대한 정보를 얻습니다.
             try:
                 batch_normalize = int(x['batch_normalize'])
                 bias = False
             except:
-								batch_normalize = 0
-								bias = True
-			
-								filters = int(x['filters'])
-								padding = int(x['pad'])
-								kernel_size = int(x['size'])
-								stride = int(x['stride'])
-			
-										if padding:
-											pad = (kernel_size - 1) // 2
-										else:
-											pad = 0
-			
-								# convolutional layer를 추가합니다.
-								conv = nn.Conv2d(prev_filters, filters, kernel_size, stride, pad, bias = bias)
-								module.add_module('conv_{0}'.format(index),conv)
-								
-								# Batch Norm Layer를 추가합니다.
-								if batch_normalize:
-									bn = nn.BatchNorm2d(filters)
-									module.add_module('batch_norm_{0}'.format(index),bn)
-									
-								# activation을 확인합니다.
-								# YOLO에서 Leaky ReLU 또는 Linear 입니다.
-								if activation == 'leaky':
-									activn = nn.LeakyReLU(0.1, inplace = True)
-									module.add_module('leaky_{0}'.format(index), activn)
-							
-								# upsampling layer 입니다.
-								# Bilinear2dUpsampling을 사용합니다.
-			elif (x['type'] == 'upsample'):
-				stride = int(x['stride'])
-				upsample = nn.Upsample(sacle_factor = 2, mode = 'bilinear')
-				module.add_module('upsample_{}'.format(index), upsample)
+		batch_normalize = 0
+		bias = True
+
+		filters = int(x['filters'])
+		padding = int(x['pad'])
+		kernel_size = int(x['size'])
+		stride = int(x['stride'])
+
+				if padding:
+					pad = (kernel_size - 1) // 2
+				else:
+					pad = 0
+
+		# convolutional layer를 추가합니다.
+		conv = nn.Conv2d(prev_filters, filters, kernel_size, stride, pad, bias = bias)
+		module.add_module('conv_{0}'.format(index),conv)
+
+		# Batch Norm Layer를 추가합니다.
+		if batch_normalize:
+			bn = nn.BatchNorm2d(filters)
+			module.add_module('batch_norm_{0}'.format(index),bn)
+
+		# activation을 확인합니다.
+		# YOLO에서 Leaky ReLU 또는 Linear 입니다.
+		if activation == 'leaky':
+			activn = nn.LeakyReLU(0.1, inplace = True)
+			module.add_module('leaky_{0}'.format(index), activn)
+
+		# upsampling layer 입니다.
+		# Bilinear2dUpsampling을 사용합니다.
+	elif (x['type'] == 'upsample'):
+		stride = int(x['stride'])
+		upsample = nn.Upsample(sacle_factor = 2, mode = 'bilinear')
+		module.add_module('upsample_{}'.format(index), upsample)
 ```
 
 * __과정 4__: Route과 shortcut layer 를 추가
@@ -263,3 +263,18 @@ elif (x['type'] == 'route'):
                                 module.add_module('shortcut_{}'.format(index), shortcut)
 ```
 
+* __과정 5__: YOLO 레이어 생성
+
+```python
+elif x['type'] == 'yolo':
+	mask = x['mask'].split(',')
+	mask = [int(x) for x in mask]
+
+	anchors = x['anchors'].split(',')
+	anchors = [int(a) for a in anchors]
+	anchors = [(anchors[i], anchors[i+1]) for i in range(0, len(anchors),2)]
+	anchors = [anchors[i] for i in mask]
+
+	detection = DetectionLayer(anchors)
+	module.add_module('Detection_{}'.format(index), detection)
+```
