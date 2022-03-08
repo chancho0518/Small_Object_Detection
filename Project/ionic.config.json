@@ -1,0 +1,7 @@
+{
+  "name": "web-dnn",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
